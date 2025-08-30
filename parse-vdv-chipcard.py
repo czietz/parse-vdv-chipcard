@@ -72,6 +72,9 @@ class Tag(IntEnum):
     STATUSAENDERUNG_BERECHTIGUNG = 0x8D
     AUSGABE_BERECHTIGUNG_DATEN = 0x9A
 
+    FAHRTTRANSAKTION = 0xF1
+    ALLGEMEINE_FAHRTTRANSAKTIONSDATEN = 0x8B
+
     # TLV-EFS tags
     TLV_EFS_GRUNDLEGENDE_DATEN = 0xDA
     TLV_EFS_FAHRGAST = 0xDB
@@ -104,7 +107,8 @@ class VdvKaDecoder:
         Tag.BERECHTIGUNG_DYNAMISCH: "1:berStatus|1:berSynchronNummer",
         Tag.TLV_EFS_FAHRGAST: "1:efsFahrgastGeschlecht|H:efsFahrgastGeburtsdatum|S:efsFahrgastName",
         Tag.TLV_EFS_LISTE_ORIG_GELTUNGSBEREICH: "1:Typ|2:pv.organisationsNummer",
-        Tag.LETZTE_TRANSAKTION: "1:LogTransaktionsTyp|1:Zeiger"
+        Tag.LETZTE_TRANSAKTION: "1:LogTransaktionsTyp|1:Zeiger",
+        Tag.ALLGEMEINE_FAHRTTRANSAKTIONSDATEN: "2:berLogSeqNummer|4:berechtigungNummer|2:ber.organisationsNummer|2:produktNummer|2:produkt.organisationsNummer|2:Linie_ID.linienNummer|1:VariantenNummer|3:fahrtNummer|2:Organisation_ID.organisationsNummer"
     }
 
     # DateTimeCompact is a four-byte encoding of date and time
